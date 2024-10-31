@@ -14,9 +14,7 @@ Organizing my knowledge in one place helps me:
 ### Contents
 
 - **React:** 
-  - Exploration of React fundamentals, component building, and state management.
-  - Hands-on **small** projects to reinforce React concepts.
-  - Insights into component structure, data flow, and optimization.
+  - Hands-on **small** projects to reinforce React concepts. ( currently working on this so its on the way)
 
 - **Java:** 
   - Java streams
