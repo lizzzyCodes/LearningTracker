@@ -5,15 +5,14 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import UserProfile from "./projects/FetchUserProfiles/UserProfile";
 import Posts from "./projects/PaginatedPosts/Posts";
+import UserProfileLists from "./projects/FetchUserProfiles/UserProfileLists";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/fetch-profiles" element={<UserProfile />} />
-        {/* Customizing Item / Order data will get rendered by ID*/}
+        <Route path="/fetch-profiles" element={<UserProfileLists />} />
         <Route path="/paginated-posts" element={<Posts />} />
       </Routes>
     </Router>
