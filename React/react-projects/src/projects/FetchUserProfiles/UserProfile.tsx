@@ -1,27 +1,27 @@
-// A component responsible for rendering each individual user profile. this is
+// A component responsible for rendering each individual user profile.
+import { extractPrimaryZipCode } from "./helperFunctions";
 interface UserProfileInterface {
   name?: string;
-  address?: string;
   suite?: string;
   street?: string;
   city: string;
-  zipcode: string;
+  rawZipCode: string;
   email: string;
+  imgSrc?: string;
 }
 
-// yes will take in a data and name.. to show what to display
 // edge case what happens if the user does not have a suite?
 function UserProfile({
   name,
-  address,
   street,
   suite,
   city,
-  zipcode,
+  rawZipCode,
   email,
+  imgSrc,
 }: UserProfileInterface) {
-  // user's name, email, and address in a styled card format.
-  // street, suite, city, zipcode
+  const parsedZipCode = extractPrimaryZipCode(rawZipCode);
+
   return (
     <div>
       <div className="container">
@@ -34,7 +34,7 @@ function UserProfile({
         <div className="card-content">
           <p>{name}</p>
           <p>{email}</p>
-          <p>{street + " " + suite + " " + city + " " + zipcode}</p>
+          <p>{street + " " + suite + " " + city + " " + parsedZipCode}</p>
         </div>
       </div>
     </div>
