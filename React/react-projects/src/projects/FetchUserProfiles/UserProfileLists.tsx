@@ -4,10 +4,14 @@ import { useEffect, useState } from "react";
 import { fetchData, fetchImages } from "./apiService";
 import UserProfile from "../FetchUserProfiles/UserProfile";
 import InputBox from "./InputSearch";
+import LoadingSpinner from "./LoadingSpinner";
 
 function UserProfileLists() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false); // false because not yet loading
   useEffect(() => {
+    // before you start fetching setLoading to true as this indicates that we are loading
+    setLoading(true);
     async function startFetching() {
       try {
         const data = await fetchData();
@@ -16,14 +20,18 @@ function UserProfileLists() {
         console.log(data, "overall data here [ec]");
       } catch (e) {
         console.log(e, "throw the error");
+      } finally {
+        setLoading(false); // done fetching data
       }
     }
     startFetching();
   }, []);
 
+  if (loading) return <LoadingSpinner />;
+
   return (
+    // if loading? display spinner else display input box etc etc.
     <div>
-      <InputBox />
       <div>
         {data.map(
           ({

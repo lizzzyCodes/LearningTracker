@@ -21,3 +21,17 @@ export const seeds: string[] = [
   "Riley",
   "Luis",
 ];
+
+export const titles: string[] = [
+  "Miss",
+  "Mrs",
+  "Mr",
+  "Mrs.",
+  "Mr.",
+  "Miss.",
+  "Dr",
+  "Mr.",
+  "Mrs.",
+  "Ms.",
+  "Dr.",
+];
