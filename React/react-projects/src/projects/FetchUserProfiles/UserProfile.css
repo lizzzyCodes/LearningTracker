@@ -1,0 +1,41 @@
+#container {
+  max-width: 300px;
+
+  /* Center the container in middle on horizontal axis */
+  margin: 0 auto;
+
+  /* Add empty space above the container (20% of the view height) */
+  margin-top: 20vh;
+}
+.card {
+  margin: 20px;
+  /* Change background color */
+  background-color: white;
+
+  /* Add border */
+  border: 1px solid #bacdd8;
+
+  /* Add space between the border and the content */
+  padding: 8px;
+
+  border-radius: 12px;
+}
+img {
+  width: 100%;
+  border-radius: 12px;
+  height: 214px;
+  object-fit: cover;
+}
+/* Style div elements that have class equal to name */
+.name {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 16px;
+}
+
+/* Style p element */
+p {
+  font-size: 14px;
+  color: #7f8c9b;
+  line-height: 150%;
+}
