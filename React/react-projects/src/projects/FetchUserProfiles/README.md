@@ -24,9 +24,9 @@ This project contains the following key files:
 2. **`UserProfile.tsx`**
    - This component is responsible for rendering each individual user profile. It receives user data as props and displays it.
 
-3. **`UserProfilesList.js`**
+3. **`UserProfilesList.tsx`**
    - The main component that fetches the data, handles loading states, error handling, and maps over each profile to render a `UserProfile`.
 
 ## Bonus
-- **Search Functionality**: Implement search functionality to filter users by name. This can be added in the `UserProfilesList.js` component by including an input field and filtering the displayed profiles based on the input value.
+- **Search Functionality**: Implement search functionality to filter users by name. This can be added in the `UserProfilesList.tsx` component by including an input field and filtering the displayed profiles based on the input value.
 

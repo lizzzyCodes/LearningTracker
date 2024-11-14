@@ -8,7 +8,7 @@ interface UserProfileInterface {
   city: string;
   rawZipCode: string;
   email: string;
-  imgSrc?: string;
+  imgSrc?: any;
 }
 
 // edge case what happens if the user does not have a suite?
@@ -23,20 +23,22 @@ function UserProfile({
 }: UserProfileInterface) {
   const parsedZipCode = extractPrimaryZipCode(rawZipCode);
 
+  // converting svg into a blob
+  const svgBlob = new Blob([imgSrc], { type: "image/svg+xml" });
+  // creating a URL for it so it can be displayed in the iamge tag
+  const svgUrl = URL.createObjectURL(svgBlob);
+
   return (
     <div>
       <div className="container">
         <div className="card">
-            {/* Image Link Prop will be passed here */}
-          <img
-            src="https://images.unsplash.com/photo-1534854638093-bada1813ca19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
-            alt="profile image"
-          />
-
+          <img alt="image" src={svgUrl} />
           <div className="card-details">
             <div className="name">{name}</div>
             <p>Email: {email}</p>
-            <p>Address: {street + " " + suite + " " + city + " " + parsedZipCode}</p>
+            <p>
+              Address: {street + " " + suite + " " + city + " " + parsedZipCode}
+            </p>
           </div>
         </div>
       </div>

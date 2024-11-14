@@ -1,4 +1,5 @@
 import { seeds } from "./data";
+
 export const fetchData = async () => {
   try {
     // fetches all users
@@ -15,24 +16,39 @@ export const fetchData = async () => {
   }
 };
 
+export function getRandomSeed(nameList: string[]) {
+  let randomIndex = Math.floor(Math.random() * nameList.length);
+  return nameList[randomIndex]; // will return a seed
+}
 // function to generate random images
 // use localStorage to prevent API call overload
-export const fetchImages = async () => {
-  function getRandomSeed(nameList: string[]) {
-    let randomIndex = Math.floor(Math.random() * nameList.length);
-    return nameList[randomIndex];
-  }
 
-  let seed = getRandomSeed(seeds);
-  let key = `avatar-${seed}`;
-
+export const fetchImages = async (seed: string) => {
   // create a random function to fetch a random picture
   try {
-    // think hashmap
-    //  Check if the image URL is already in localStorage and store this in a variable
-    // if stored image in localStorage call the stored image and pass it down the profiles?
-    // else call the API and set the local storage
-    const value = `https://api.dicebear.com/9.x/adventurer/svg?seed=${seed}`;
+
+    let key = `avatar-${seed}`;
+    let url: string;
+    let value: string;
+
+    if (!localStorage.getItem(key)) {
+      url = `https://api.dicebear.com/9.x/adventurer/svg?seed=${seed}`;
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error("Error fetching image API call");
+      }
+
+      value = await response.text();
+
+      localStorage.setItem(key, value);
+
+    } else {
+      // fetch the key stored in the storage
+      value = localStorage.getItem(key) || "";
+
+    }
+    return value;
   } catch (e) {
     console.log(e, "error fetching images api");
   }

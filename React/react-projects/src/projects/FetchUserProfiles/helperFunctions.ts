@@ -7,7 +7,7 @@ export function extractPrimaryZipCode(zipCode: string) {
 
 // takes in a name and removes the Mrs, Miss, Dr etc. So when users search for a user
 // it avoids the titles
-
+// will be used in the InputSearchBox
 export function filterName(name: string, title: string[]) {
   let splitName = name.split(" ");
 
