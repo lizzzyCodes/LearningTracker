@@ -12,12 +12,11 @@ import { seeds } from "./data";
 function UserProfileLists() {
   const [data, setData] = useState(Array<[]>);
   const [loading, setLoading] = useState(false); // false because not yet loading
-  // const [images, setImages] = useState([]);
 
   useEffect(() => {
     // before you start fetching setLoading to true as this indicates that we are loading
     setLoading(true);
-    // get a random seed, append it to a array,
+
     async function startFetching() {
       try {
         const data = await fetchData();
@@ -43,7 +42,7 @@ function UserProfileLists() {
   }, []);
 
   if (loading) return <LoadingSpinner />;
-  // would i store each random seed name into an array ?
+
   return (
     <div>
       <div>

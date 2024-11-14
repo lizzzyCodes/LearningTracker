@@ -1,5 +1,3 @@
-import { seeds } from "./data";
-
 export const fetchData = async () => {
   try {
     // fetches all users
@@ -16,15 +14,14 @@ export const fetchData = async () => {
   }
 };
 
+// function to generate random images
 export function getRandomSeed(nameList: string[]) {
   let randomIndex = Math.floor(Math.random() * nameList.length);
   return nameList[randomIndex]; // will return a seed
 }
-// function to generate random images
-// use localStorage to prevent API call overload
 
+// use localStorage to prevent API call overload
 export const fetchImages = async (seed: string) => {
-  // create a random function to fetch a random picture
   try {
 
     let key = `avatar-${seed}`;
